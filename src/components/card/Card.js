@@ -5,7 +5,7 @@
  * file:  cardMoule.scss
  */
 
-import styles from "./Card.moule.scss"
+import styles from "./Card.module.scss"
 
 const Card = ({children, CardClass}) => {
   return (
@@ -15,4 +15,7 @@ const Card = ({children, CardClass}) => {
   )
 };
 
+
 export default Card;
+
+
