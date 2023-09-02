@@ -29,10 +29,10 @@ const Register = () => {
           <h2>S'inscrire</h2>
 
           <form>
-            <input type="text" placeholder='nom' required name='name'/>
-            <input type="email" placeholder='adresse mail' required name='email'/>
-            <input type="password" placeholder='mot de passe' required name='password'/>
-            <input type="password" placeholder='confirmer le mot de passe' required name='password'/>
+            <input type="text" placeholder='Nom' required name='name'/>
+            <input type="email" placeholder='Adresse mail' required name='email'/>
+            <input type="password" placeholder='Mot de passe' required name='password'/>
+            <input type="password" placeholder='Confirmer le mot de passe' required name='password'/>
             <button type='submit' className='--btn --btn-primary --btn-block'>S'inscrire</button>
           </form>
 
@@ -41,7 +41,7 @@ const Register = () => {
             
             <p> &nbsp; J'ai déja un compte ? &nbsp;</p>
             
-            <Link to="/register">Se connecter</Link>
+            <Link to="/Login">Se connecter</Link>
           </span>
         </div>
       </Card>
