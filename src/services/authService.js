@@ -80,7 +80,7 @@ export const forgotPassword = async (userData) => {
       userData
     );
     toast.success(response.data.message);
-    
+
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||
@@ -92,12 +92,14 @@ export const forgotPassword = async (userData) => {
 
 // Reset Password
 export const resetPassword = async (userData, resetToken) => {
+  // get the route and send it to backend
   try {
     const response = await axios.put(
       `${BACKEND_URL}/api/users/resetpassword/${resetToken}`,
       userData
     );
     return response.data;
+
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||
