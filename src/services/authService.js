@@ -59,6 +59,7 @@ export const loginUser = async (userData) => {
 
 // Logout User
 export const logoutUser = async () => {
+  //Logout and navigate to login page
   try {
     await axios.get(`${BACKEND_URL}/api/users/logout`);
   } catch (error) {
@@ -72,13 +73,14 @@ export const logoutUser = async () => {
 
 // Forgot Password
 export const forgotPassword = async (userData) => {
-  //Logout and navigate to login page
+  
   try {
     const response = await axios.post(
       `${BACKEND_URL}/api/users/forgotpassword`,
       userData
     );
     toast.success(response.data.message);
+    
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||
