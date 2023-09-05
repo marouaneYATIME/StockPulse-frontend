@@ -111,9 +111,11 @@ export const resetPassword = async (userData, resetToken) => {
 
 // Get Login Status
 export const getLoginStatus = async () => {
+  // Get status to get the current session 
   try {
     const response = await axios.get(`${BACKEND_URL}/api/users/loggedin`);
     return response.data;
+    
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||
