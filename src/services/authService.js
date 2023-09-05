@@ -72,6 +72,7 @@ export const logoutUser = async () => {
 
 // Forgot Password
 export const forgotPassword = async (userData) => {
+  //Logout and navigate to login page
   try {
     const response = await axios.post(
       `${BACKEND_URL}/api/users/forgotpassword`,
