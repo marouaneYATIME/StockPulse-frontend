@@ -10,12 +10,12 @@ import { SpinnerImg } from "../../loader/Loader";
 import "./productList.scss";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { AiOutlineEye } from "react-icons/ai";
-//import Search from "../../search/Search";
+import Search from "../../search/Search";
 import { useDispatch, useSelector } from "react-redux";
-// import {
-//   FILTER_PRODUCTS,
-//   selectFilteredPoducts,
-// } from "../../../redux/features/product/filterSlice";
+ import {
+   FILTER_PRODUCTS,
+   selectFilteredPoducts,
+} from "../../../redux/features/product/filterSlice";
 //import ReactPaginate from "react-paginate";
 //import { confirmAlert } from "react-confirm-alert";
 //import "react-confirm-alert/src/react-confirm-alert.css";
@@ -32,7 +32,7 @@ import { Link } from "react-router-dom";
 const ProductList =({ products, isLoading }) => {
 
     const [search, setSearch] = useState("");
-    //const filteredProducts = useSelector(selectFilteredPoducts);
+    const filteredProducts = useSelector(selectFilteredPoducts);
 
     const dispatch = useDispatch();
 
@@ -86,9 +86,9 @@ const ProductList =({ products, isLoading }) => {
     // };
     // //   End Pagination
 
-    // useEffect(() => {
-    //     dispatch(FILTER_PRODUCTS({ products, search }));
-    // }, [products, search, dispatch]);
+    useEffect(() => {
+     dispatch(FILTER_PRODUCTS({ products, search }));
+    }, [products, search, dispatch]);
 
 
     return (
@@ -100,10 +100,10 @@ const ProductList =({ products, isLoading }) => {
                 <h3>Éléments d'inventaire</h3>
             </span>
             <span>
-                {/* <Search
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                /> */}
+                { <Search
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                /> }
             </span>
             </div>
 
@@ -127,7 +127,7 @@ const ProductList =({ products, isLoading }) => {
                 </thead>
 
                 <tbody>
-                    {products.map((product, index) => {
+                    {filteredProducts.map((product, index) => {
                     const { _id, name, category, price, quantity } = product;
                     return (
                         <tr key={_id}>
