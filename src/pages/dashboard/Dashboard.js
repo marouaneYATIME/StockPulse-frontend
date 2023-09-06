@@ -29,7 +29,7 @@ const Dashboard = () => {
     if (isLoggedIn === true) {
       dispatch(getProducts());
     }
-    console.log(products)
+    
     if (isError) {
       console.log(message);
     }
