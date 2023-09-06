@@ -40,7 +40,27 @@ export const createProduct = createAsyncThunk(
         return thunkAPI.rejectWithValue(message);
       }
     }
-  );
+);
+
+// Get all products
+export const getProducts = createAsyncThunk(
+    "products/getAll",
+    async (_, thunkAPI) => {
+      try {
+        return await productService.getProducts();
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+        console.log(message);
+        return thunkAPI.rejectWithValue(message);
+      }
+    }
+);
+  
 
 
 
@@ -68,6 +88,24 @@ const productSlice = createSlice({
             toast.success("Produit ajouté avec succès !");
         })
         .addCase(createProduct.rejected, (state, action) => {
+            state.isLoading = false;
+            state.isError = true;
+            state.message = action.payload;
+            toast.error(action.payload);
+        })
+        
+        //get product cases
+        .addCase(getProducts.pending, (state) => {
+            state.isLoading = true;
+        })
+        .addCase(getProducts.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.isSuccess = true;
+            state.isError = false;
+            console.log(action.payload);
+            state.products = action.payload;
+        })
+        .addCase(getProducts.rejected, (state, action) => {
             state.isLoading = false;
             state.isError = true;
             state.message = action.payload;

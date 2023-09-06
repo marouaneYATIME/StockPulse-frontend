@@ -12,7 +12,7 @@ import { RiProductHuntLine } from "react-icons/ri";
 import menu from "../../data/sidebar";
 import SidebarItem from "./SidebarItem.js";
 import { useNavigate } from "react-router-dom";
-import SidebarItme from './SidebarItem.js';
+
 
 
 
@@ -48,7 +48,7 @@ const Sidebar = ({children}) => {
 
             </div>
         {menu.map((item, index) => {
-            return <SidebarItme key={index} item={item} isOpen={isOpen}/>
+            return <SidebarItem key={index} item={item} isOpen={isOpen}/>
         })}
         </div>
         <main style={{ paddingLeft: isOpen ? "230px" : "60px", 
