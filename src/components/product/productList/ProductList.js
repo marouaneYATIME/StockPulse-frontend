@@ -17,8 +17,8 @@ import { useDispatch, useSelector } from "react-redux";
    selectFilteredPoducts,
 } from "../../../redux/features/product/filterSlice";
 import ReactPaginate from "react-paginate";
-//import { confirmAlert } from "react-confirm-alert";
-//import "react-confirm-alert/src/react-confirm-alert.css";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 import {
   deleteProduct,
   getProducts,
@@ -44,28 +44,29 @@ const ProductList =({ products, isLoading }) => {
         return text;
     };
 
-    // const delProduct = async (id) => {
-    //     console.log(id);
-    //     await dispatch(deleteProduct(id));
-    //     await dispatch(getProducts());
-    // };
+    const delProduct = async (id) => {
+        console.log(id);
+         dispatch(deleteProduct(id));
+         dispatch(getProducts());
+    };
 
-    // const confirmDelete = (id) => {
-    //     confirmAlert({
-    //     title: "Delete Product",
-    //     message: "Are you sure you want to delete this product.",
-    //     buttons: [
-    //         {
-    //         label: "Delete",
-    //         onClick: () => delProduct(id),
-    //         },
-    //         {
-    //         label: "Cancel",
-    //         // onClick: () => alert('Click No')
-    //         },
-    //     ],
-    //     });
-    // };
+    // Message to confirm delete product
+    const confirmDelete = (id) => {
+        confirmAlert({
+        title: "Supprimer le produit",
+        message: "Êtes-vous sûr de vouloir supprimer ce produit ?",
+        buttons: [
+            {
+            label: "Supprimer",
+            onClick: () => delProduct(id),
+            },
+            {
+            label: "Annuler",
+            //onClick: () => alert('Click No')
+            },
+        ],
+        });
+    };
 
     // //   Begin Pagination
     const [currentItems, setCurrentItems] = useState([]);
@@ -158,7 +159,7 @@ const ProductList =({ products, isLoading }) => {
                             <FaTrashAlt
                                 size={20}
                                 color={"red"}
-                                //onClick={() => confirmDelete(_id)}
+                                onClick={() => confirmDelete(_id)}
                             />
                             </span>
                         </td>
