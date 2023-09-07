@@ -34,12 +34,12 @@ export const formatNumbers = (x) => {
 const ProductSummary = ({ products }) => {
   const dispatch = useDispatch();
   const totalStoreValue = useSelector(selectTotalStoreValue);
-//   const outOfStock = useSelector(selectOutOfStock);
+  const outOfStock = useSelector(selectOutOfStock);
 //   const category = useSelector(selectCategory);
 
   useEffect(() => {
     dispatch(CALC_STORE_VALUE(products));
-    // dispatch(CALC_OUTOFSTOCK(products));
+    dispatch(CALC_OUTOFSTOCK(products));
     // dispatch(CALC_CATEGORY(products));
   }, [dispatch, products]);
 
@@ -62,7 +62,7 @@ const ProductSummary = ({ products }) => {
         <InfoBox
           icon={outOfStockIcon}
           title={"En rupture"}
-          count={"0"}
+          count={outOfStock}
           bgColor="card3"
         />
         <InfoBox
