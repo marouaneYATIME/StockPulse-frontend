@@ -8,13 +8,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import Card from "../../components/card/Card";
+import Card from "../../components/card/Card.js";
 import { SpinnerImg } from "../../components/loader/Loader";
 import useRedirectLoggedOutUser from "../../customHook/useRedirectLoggedOutUser";
 import { SET_NAME, SET_USER } from "../../redux/features/auth/authSlice";
 import { getUser } from "../../services/authService";
-//import "./Profile.scss";
 import "./Profile.scss";
+
 
 
 const Profile = () => {
