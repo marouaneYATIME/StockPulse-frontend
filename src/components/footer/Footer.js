@@ -10,7 +10,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <div className="--flex-center --py2">
-        <p> All Right Reserved. &copy;</p>
+        <p>StockPulse All Right Reserved 2023. &copy;</p>
     </div>
   );
 };

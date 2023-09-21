@@ -16,28 +16,28 @@ const menu = [
     path: "/dashboard",
   },
   {
-    title: "Add Product",
+    title: "Ajouter Produit",
     icon: <BiImageAdd />,
     path: "/add-product",
   },
   {
-    title: "Account",
+    title: "Compte",
     icon: <FaRegChartBar />,
     childrens: [
       {
-        title: "Profile",
+        title: "Profil",
         path: "/profile",
       },
       {
-        title: "Edit Profile",
+        title: "Modifier Profil",
         path: "/edit-profile",
       },
     ],
   },
   {
-    title: "Report Bug",
+    title: "Contact",
     icon: <FaCommentAlt />,
-    path: "/contact-us",
+    path: "/contact",
   },
 ];
 

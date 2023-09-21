@@ -14,7 +14,7 @@ import { selectUser } from "../../redux/features/auth/authSlice";
 import "./Profile.scss";
 import { toast } from "react-toastify";
 import { updateUser } from "../../services/authService";
-//import ChangePassword from "../../components/changePassword/ChangePassword";
+import ChangePassword from "../../components/changePassword/ChangePassword";
 
 const EditProfile = () => {
   const navigate = useNavigate();
@@ -104,7 +104,7 @@ const EditProfile = () => {
         <form className="--form-control --m" onSubmit={saveProfile}>
           <span className="profile-data">
             <p>
-              <label>Name:</label>
+              <label>Nom:</label>
               <input
                 type="text"
                 name="name"
@@ -116,10 +116,10 @@ const EditProfile = () => {
               <label>Email:</label>
               <input type="text" name="email" value={profile?.email} disabled />
               <br />
-              <code>Email cannot be changed.</code>
+              <code>L'adresse électronique ne peut pas être modifiée.</code>
             </p>
             <p>
-              <label>Phone:</label>
+              <label>Numero:</label>
               <input
                 type="text"
                 name="phone"
@@ -142,13 +142,13 @@ const EditProfile = () => {
               <input type="file" name="image" onChange={handleImageChange} />
             </p>
             <div>
-              <button className="--btn --btn-primary">Edit Profile</button>
+              <button className="--btn --btn-primary">Modifier le profil</button>
             </div>
           </span>
         </form>
       </Card>
       <br />
-      
+      <ChangePassword/>
     </div>
   );
 };
