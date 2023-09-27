@@ -38,22 +38,29 @@ const Home = () => {
         {/** Hero Section */}
         <div className="container hero" >
             <div className="hero-text">
-                <h2> StockPulse Inventory and stock Management </h2>
+                <h2> StockPulse Gestion des stocks et de l'inventaire </h2>
                 <p> 
-                    Inventory System to control and manage products in 
-                    the warehouse in real timeand integrated to make it 
-                    easier to develop your business.
+                    Système d'inventaire pour contrôler et gérer les produits 
+                    dans l'entrepôt en temps réel et intégré pour faciliter le développement 
+                    de votre entreprise.
                 </p>
+
+                <p> 
+                    L'objectif principal de StockPulse est de simplifier la gestion 
+                    des stocks de produits et des tâches à accomplir au sein d'une entreprise ou 
+                    d'une organisation. Cela permettra d'optimiser les opérations et de gagner en efficacité.
+                </p>
+                
+                <div className='--flex-start'>
+                    <NumberText num="10k" text="Collaborateurs"/>
+                    <NumberText num="32k" text="Utilisateurs actifs"/>
+                    <NumberText num="100+" text="Partenaires"/>
+                </div>
 
                 <div className="hero-buttons">
                     <button className="--btn --btn-secondary">
-                        <Link to="/dashboard">Free trial one month</Link>
+                        <Link to="/contact">Contact</Link>
                     </button>
-                </div>
-                <div className='--flex-start'>
-                    <NumberText num="14k" text="Brand Owners"/>
-                    <NumberText num="23k" text="Active Users"/>
-                    <NumberText num="500+" text="Partners"/>
                 </div>
             </div>
             <div className="hero-image">

@@ -45,7 +45,7 @@ const ProductSummary = ({ products }) => {
 
   return (
     <div className="product-summary">
-      <h3 className="--mt">Inventory Stats</h3>
+      <h3 className="--mt">Stats d'inventaires</h3>
       <div className="info-summary">
         <InfoBox
           icon={productIcon}
